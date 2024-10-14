@@ -1,0 +1,22 @@
+  
+import csv  
+import os  
+file_path = 'stuGrade.csv' 
+chinese_sum = 0  
+math_sum = 0  
+english_sum = 0  
+count = 0  
+with open(file_path, mode='r', encoding='utf-8') as file:  
+    csv_reader = csv.DictReader(file)  
+    next(csv_reader)    
+    for row in csv_reader:  
+        chinese_sum += float(row['chinese'])  
+        math_sum += float(row['math'])  
+        english_sum += float(row['english'])  
+        count += 1  
+chinese_avg = round(chinese_sum / count, 2)  
+math_avg = round(math_sum / count, 2)  
+english_avg = round(english_sum / count, 2)  
+print("语文平均分:",chinese_avg)  
+print("数学平均分:",math_avg)  
+print("英语平均分",english_avg)
